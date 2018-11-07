@@ -11,6 +11,11 @@
  * ----------------------------------------------------------
  */
 
+ #include <stdbool.h>
+  #ifndef ___CHESS_H
+ #define ___CHESS_H
+
+
 enum Color{White,Black};
 
 enum PieceType{
@@ -58,3 +63,5 @@ bool squares_share_pawns_move(Color color,Move move,int file, int rank, int file
 bool squares_share_queens_move(int file, int rank, int file2, int rank2);
 
 bool squares_share_kings_move(int file, int rank, int file2, int rank2);
+
+#endif
