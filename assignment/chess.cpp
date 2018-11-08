@@ -10,6 +10,7 @@
  * Implementation of basic chess functions.
  * ----------------------------------------------------------
  */
+ #include <stdlib.h>
 #include "shortcut.h"
 #include "test_chess.h"
 #include "chess.h"
@@ -100,14 +101,14 @@ void setup_chess_board(ChessBoard board)
  add_piece(board,'g',1,white_knight);
  add_piece(board,'h',1,white_rook);
 
- add_piece(board,'a',7,black_rook);
- add_piece(board,'b',7,black_knight);
- add_piece(board,'c',7,black_bishop);
- add_piece(board,'d',7,black_queen);
- add_piece(board,'e',7,black_king);
- add_piece(board,'f',7,black_bishop);
- add_piece(board,'g',7,black_knight);
- add_piece(board,'h',7,black_rook);
+ add_piece(board,'a',8,black_rook);
+ add_piece(board,'b',8,black_knight);
+ add_piece(board,'c',8,black_bishop);
+ add_piece(board,'d',8,black_queen);
+ add_piece(board,'e',8,black_king);
+ add_piece(board,'f',8,black_bishop);
+ add_piece(board,'g',8,black_knight);
+ add_piece(board,'h',8,black_rook);
 }
 
 bool remove_piece(ChessBoard board, int file,int rank)
@@ -130,7 +131,7 @@ bool squares_share_file(int file, int rank, int file2, int rank2)
 }
 bool squares_share_rank(int file, int rank, int file2, int rank2)
 {
-    if(rank >=1 && rank <= 8 && file >= 'a' && file <='h' && rank == rank2)
+    if(rank >=1 && rank <= 8 && file >= 'a' && file <='h' && rank2 >=1 && rank2 <= 8 && file2 >= 'a' && file2 <='h' && rank == rank2)
     {
         return true;
     }
@@ -139,7 +140,8 @@ bool squares_share_rank(int file, int rank, int file2, int rank2)
 
 bool squares_share_diagonal(int file, int rank, int file2, int rank2)
 {
-    if(rank >=1 && rank <= 8 && file >= 'a' && file <='h' && (file - file2) == (rank -rank2))
+    if(rank >=1 && rank <= 8 && file >= 'a' && file <='h' && rank2 >=1 && rank2 <= 8 && file2 >= 'a' && file2 <='h' &&
+      abs(file - file2) == abs(rank -rank2))
     {
         return true;
     }
@@ -150,6 +152,10 @@ bool squares_share_diagonal(int file, int rank, int file2, int rank2)
 
 bool squares_share_knights_move(int file, int rank, int file2, int rank2)
 {
+  if (rank >=1 && rank <= 8 && file >= 'a' && file <='h' && rank2 >=1 && rank2 <= 8 && file2 >= 'a' && file2 <='h' && (rank - rank2) == 1 && (file - file 2) == 2 ||)
+  {
+    /* code */
+  }
   return false;
 }
 
