@@ -152,7 +152,8 @@ bool squares_share_diagonal(int file, int rank, int file2, int rank2)
 
 bool squares_share_knights_move(int file, int rank, int file2, int rank2)
 {
-  if (rank >=1 && rank <= 8 && file >= 'a' && file <='h' && rank2 >=1 && rank2 <= 8 && file2 >= 'a' && file2 <='h' && (rank - rank2) == 1 && (file - file 2) == 2 ||)
+  if (rank >=1 && rank <= 8 && file >= 'a' && file <='h' && rank2 >=1 && rank2 <= 8 && file2 >= 'a' && file2 <='h' &&
+    (rank - rank2) == 1 && (file - file 2) == 2 ||)
   {
     /* code */
   }
