@@ -31,14 +31,16 @@ void init_chess_board(ChessBoard chess_board)
 		}
 	}
 }
+
 ChessSquare* get_square(ChessBoard board, int file, int rank)
 {
-    if(rank >=1 && rank <= 8 && file >= 'a' && file <='h')
+    if(rank >= 1 && rank <= 8 && file >= 'a' && file <= 'h')
     {
-        return &board[file -1][rank -97];
+        return &board[rank - 1][file - 'a'];
     }
     return 0;
 }
+
 bool is_square_occupied(ChessBoard board, int file, int rank)
 {
     return board[file -1][rank -97].is_occupied;
@@ -103,9 +105,9 @@ bool remove_piece(ChessBoard board, int file,int rank)
     if(is_square_occupied(board,file,rank))
     {
         board[file-1][rank-97].is_occupied = false;
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }
 
 bool squares_share_file(int file, int rank, int file2, int rank2)
