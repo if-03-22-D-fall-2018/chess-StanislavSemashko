@@ -114,7 +114,7 @@ bool remove_piece(ChessBoard board, int file,int rank)
 {
     if(is_square_occupied(board,file,rank))
     {
-        board[file-1][rank-97].is_occupied = false;
+        board[rank - 1][file - 'a'].is_occupied = false;
         return true;
     }
     return false;
