@@ -168,6 +168,9 @@ return false;
 
 bool squares_share_queens_move(int file, int rank, int file2, int rank2)
 {
+  if (squares_share_diagonal(file,rank,file2,rank2)|| squares_share_file(file,rank,file2,rank2) || squares_share_rank(file,rank,file2,rank2)) {
+    return true;
+  }
 return false;
 }
 
