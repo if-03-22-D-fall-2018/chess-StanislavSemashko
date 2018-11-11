@@ -154,9 +154,14 @@ bool squares_share_diagonal(int file, int rank, int file2, int rank2)
 
 bool squares_share_knights_move(int file, int rank, int file2, int rank2)
 {
-  if (rank >=1 && rank <= 8 && file >= 'a' && file <='h' && rank2 >=1 && rank2 <= 8 && file2 >= 'a' && file2 <='h' && (abs(rank - rank2) == 1 && abs(file - file2) == 2 || abs(rank -rank2) ==2 && abs(file-file2) == 1 ))
+  if (rank >=1 && rank <= 8 && file >= 'a' && file <='h' && rank2 >=1 && rank2 <= 8 && file2 >= 'a' && file2 <='h')
   {
-    return true;
+    if (abs(rank - rank2) == 1 && abs(file - file2) == 2) {
+      return true;
+    }
+    else if ( abs(rank -rank2) ==2 && abs(file-file2) == 1 ) {
+      return true;
+    }
   }
   return false;
 }
@@ -168,13 +173,34 @@ return false;
 
 bool squares_share_queens_move(int file, int rank, int file2, int rank2)
 {
-  if (squares_share_diagonal(file,rank,file2,rank2)|| squares_share_file(file,rank,file2,rank2) || squares_share_rank(file,rank,file2,rank2)) {
-    return true;
+  if (rank >=1 && rank <= 8 && file >= 'a' && file <='h' && rank2 >=1 && rank2 <= 8 && file2 >= 'a' && file2 <='h')
+  {
+    if (squares_share_diagonal(file,rank,file2,rank2)) {
+      return true;
+    }
+    else if (squares_share_file(file,rank,file2,rank2)) {
+      return true;
+    }
+    else if ( squares_share_rank(file,rank,file2,rank2)) {
+      return true;
+    }
   }
 return false;
 }
 
 bool squares_share_kings_move(int file, int rank, int file2, int rank2)
 {
+  if (rank >=1 && rank <= 8 && file >= 'a' && file <='h' && rank2 >=1 && rank2 <= 8 && file2 >= 'a' && file2 <='h')
+  {
+    if (abs(file-file2) == 1 && abs(rank-rank2) == 0) {
+        return true;
+    }
+    else if (abs(file-file2) == 0 && abs(rank-rank2) == 1) {
+      return true;
+    }
+    else if (abs(file -file2) == 1 && abs(rank - rank2) == 1) {
+      return true;
+    }
+  }
 return false;
 }
